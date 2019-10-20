@@ -1,83 +1,39 @@
-# cloudwatch
+# DevOps use case: Setup a Puppet module used to run the Amazon CloudWatch
 
-#### Table of Contents
+NOTE: In order to proceed this guide, prior DevOps knowledge of working with the following technologies is highly required:
 
-1. [Description](#description)
-1. [Setup - The basics of getting started with cloudwatch](#setup)
-    * [What cloudwatch affects](#what-cloudwatch-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with cloudwatch](#beginning-with-cloudwatch)
-1. [Usage - Configuration options and additional functionality](#usage)
-1. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-1. [Limitations - OS compatibility, etc.](#limitations)
-1. [Development - Guide for contributing to the module](#development)
+Puppet configuration management tool
+Puppet declarative language for manifests
+Amazon CloudWatch
+Amazon EC2 cloud infrastructure
 
-## Description
+Amazon CloudWatch is a observability tool built for DevOps engineers, site reliability engineers, developers and IT managers. Amazon CloudWatch offers data insights useful to monitor cloud-based applications, respond to performance changes in the execution environment, optimise resource utilisation, and obtain a unified view of operational health at runtime. Amazon CloudWatch collects monitoring data in the form of metrics, logs and events, associated with different resources, applications, and services that run on AWS and on-premises servers. CloudWatch can be employed to detect anomalous behavior in the computing environment, set triggering alarms, visualise logs and metrics, take automated actions, troubleshooting operations, and discover helpful insights to keep services running smoothly.
+<br><br>
+This repository is about how to setup a Puppet module used to run the Amazon CloudWatch on whether AWS or on-premises servers. In other words, how to create a Puppet module to deploy a Monitoring Agent running on a Linux-based system regularly to push different metrics to the Amazon CloudWatch API.
+<br>
+![Image](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/CW-Overview.png)
+<br>
+Before you begin, make sure you have your own Puppet configuration management tool running. Moreover, we assume that you already have your credentials including the --aws-access-key-id and --aws-secret-key parameters. Otherwise, you must provide an IAM role. An IAM role is an identity that you can create in your account that has specific permissions. An IAM role is similar to an IAM user, but it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials such as a password or access keys associated with it. Instead, when you assume a role, it provides you with temporary security credentials for your role session. 
+<br>
+If you do not know where to retrieve the --aws-access-key-id and --aws-secret-key parameters, after logging into your Amazon AWS console go to the following page and add a user: 
+<br>https://console.aws.amazon.com/iam/home#/users
+<br>
+All your credentials or IAM role should be set in this file: [params.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/params.pp)
+<br>
+The params class contains all default parameters for our module. For example, cloudwatch_monitoring_scripts_folder which indicates the folder where you want to store the CloudWatch Monitoring Scripts. The default folder is "/cloudwatch-monitoring-scripts" that feel free to change it as you wish. 
+<br>
+The default monitoring interval is set to 1 minute. It should be noted that setting up an appropriate monitoring interval is necessary to ensure the reliability of the whole system, to
+avoid overhead, and to prevent losing control over the running environment during auto-scaling actions. Therefore, I suggest you to choose the monitoring interval carefully. In this regard, you need also to take into accout the Amazon CloudWatch Pricing. You can get started with Amazon CloudWatch for free. 
+<br>
+According to the following Web page, the Amazon CloudWatch script is able to collect different metrics such as memory, swap and disk space utilisation on the current system. It then makes a remote call to the Amazon CloudWatch to report the measured data as custom metrics.
 
-Start with a one- or two-sentence summary of what the module does and/or what
-problem it solves. This is your 30-second elevator pitch for your module.
-Consider including OS/Puppet version it works with.
 
-You can give more descriptive information in a second paragraph. This paragraph
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?" If your module has a range of functionality (installation, configuration,
-management, etc.), this is the time to mention it.
 
-## Setup
 
-### What cloudwatch affects **OPTIONAL**
 
-If it's obvious what your module touches, you can skip this section. For
-example, folks can probably figure out that your mysql_instance module affects
-their MySQL instances.
 
-If there's more that they should know about, though, this is the place to mention:
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
 
-### Setup Requirements **OPTIONAL**
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you might want to include an additional "Upgrading" section
-here.
 
-### Beginning with cloudwatch
-
-The very basic steps needed for a user to get the module up and running. This
-can include setup steps, if necessary, or it can be an example of the most
-basic use of the module.
-
-## Usage
-
-This section is where you describe how to customize, configure, and do the
-fancy stuff with your module here. It's especially helpful if you include usage
-examples and code samples for doing things with your module.
-
-## Reference
-
-Here, include a complete list of your module's classes, types, providers,
-facts, along with the parameters for each. Users refer to this section (thus
-the name "Reference") to find specific details; most users don't read it per
-se.
-
-## Limitations
-
-This is where you list OS compatibility, version compatibility, etc. If there
-are Known Issues, you might want to include them under their own heading here.
-
-## Development
-
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You can also add any additional sections you feel
-are necessary or important to include here. Please use the `## ` header.
