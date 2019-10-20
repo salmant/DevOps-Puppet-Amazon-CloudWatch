@@ -205,10 +205,10 @@ In the `params` class, you can specify which metrics are required to be monitore
 <br><br>
 The entry point to our module is this file: [init.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/init.pp)
 <br><br>
-The sofware installation step of our Puppet module is written in this file: [install.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/install.pp)
+The Amazon CloudWatch installation step of our Puppet module is written in this file: [install.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/install.pp)
 <br><br>
-The sofware configure step of our Puppet module is written in this file: [config.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/config.pp)
+The Amazon CloudWatch configure step of our Puppet module is written in this file: [config.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/config.pp)
 <br><br>
-The final part of our module is running the software that is written in this file: [service.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/service.pp)
+The final part of our module is to run the Amazon CloudWatch Agent that is written in this file: [service.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/service.pp)
 <br><br>
 
