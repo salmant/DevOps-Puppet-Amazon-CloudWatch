@@ -15,16 +15,16 @@ This repository is about how to setup a Puppet module used to run the Amazon Clo
 <br>
 Before you begin, make sure you have your own Puppet configuration management tool running. Moreover, we assume that you already have your credentials including the `--aws-access-key-id` and `--aws-secret-key parameters`. Otherwise, you must provide an IAM role. An IAM role is an identity that you can create in your account that has specific permissions. An IAM role is similar to an IAM user, but it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials such as a password or access keys associated with it. Instead, when you assume a role, it provides you with temporary security credentials for your role session. 
 <br><br>
-If you do not know where to retrieve the --aws-access-key-id and --aws-secret-key parameters, after logging into your Amazon AWS console go to the following page and add a user: 
+If you do not know where to retrieve the `--aws-access-key-id` and `--aws-secret-key` parameters, after logging into your Amazon AWS console go to the following page and add a user: 
 <br><br>https://console.aws.amazon.com/iam/home#/users
 <br><br>
 All your credentials or IAM role should be set in this file: [params.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/params.pp)
 <br><br>
-The params class contains all default parameters for our module. For example, cloudwatch_monitoring_scripts_folder which indicates the folder where you want to store the CloudWatch Monitoring Scripts. The default folder is `/cloudwatch-monitoring-scripts` that feel free to change it as you wish. 
+The params class contains all default parameters for our module. For example, `cloudwatch_monitoring_scripts_folder` indicates the folder where you want to store the CloudWatch Monitoring Scripts. The default folder is `/cloudwatch-monitoring-scripts` and feel free to change it as you wish. 
 <br><br>
 The default monitoring interval named `monitoring_interval_minutes` is set to 1 minute. It should be noted that setting up an appropriate monitoring interval is necessary to ensure the reliability of the whole system, to avoid overhead, and to prevent losing control over the running environment during auto-scaling actions. Therefore, I suggest you to choose the monitoring interval carefully. In this regard, you need also to take into accout the Amazon CloudWatch Pricing. You can get started with Amazon CloudWatch for free. 
 <br><br>
-According to the following Web page, the Amazon CloudWatch script is able to collect different metrics such as memory, swap and disk space utilisation on the current system. It then makes a remote call to the Amazon CloudWatch to report the measured data as custom metrics. `--mem-util`
+According to the following Web page, the Amazon CloudWatch script is able to collect different metrics such as memory, swap and disk space utilisation on the current system. It then makes a remote call to the Amazon CloudWatch to report the measured data as custom metrics.
 <br><br>
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 <br>
@@ -42,7 +42,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--mem-util`</td>
+<td>--mem-util</td>
 
 <td>Collects and sends the MemoryUtilization metrics in percentages. This metric counts memory allocated by applications and the operating system as used, and also includes cache and buffer memory as used if you specify the `--mem-used-incl-cache-buff` option.</td>
 
@@ -50,7 +50,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--mem-used`</td>
+<td>--mem-used</td>
 
 <td>Collects and sends the MemoryUsed metrics, reported in megabytes. This metric counts memory allocated by applications and the operating system as used, and also includes cache and buffer memory as used if you specify the `--mem-used-incl-cache-buff` option.</td>
 
@@ -58,7 +58,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--mem-used-incl-cache-buff`</td>
+<td>--mem-used-incl-cache-buff</td>
 
 <td>If you include this option, memory currently used for cache and buffers is counted as "used" when the metrics are reported for `--mem-util`, `--mem-used`, and `--mem-avail`.</td>
 
@@ -66,7 +66,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--mem-avail`</td>
+<td>--mem-avail</td>
 
 <td>Collects and sends the MemoryAvailable metrics, reported in megabytes. This metric counts memory allocated by applications and the operating system as used, and also includes cache and buffer memory as used if you specify the `--mem-used-incl-cache-buff` option.</td>
 
@@ -74,7 +74,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--swap-util`</td>
+<td>--swap-util</td>
 
 <td>Collects and sends SwapUtilization metrics, reported in percentages.</td>
 
@@ -82,7 +82,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--swap-used`</td>
+<td>--swap-used</td>
 
 <td>Collects and sends SwapUsed metrics, reported in megabytes.</td>
 
@@ -90,7 +90,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--disk-path=PATH`</td>
+<td>--disk-path=PATH</td>
 
 <td>Selects the disk on which to report. PATH can specify a mount point or any file located on a mount point for the filesystem that needs to be reported. For selecting multiple disks, specify a `--disk-path=PATH` for each one of them. To select a disk for the filesystems mounted on `/` and `/home`, use the following parameters: `--disk-path=/ --disk-path=/home`</td>
 
@@ -98,7 +98,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--disk-space-util`</td>
+<td>--disk-space-util</td>
 
 <td>Collects and sends the DiskSpaceUtilization metric for the selected disks. The metric is reported in percentages. Note that the disk utilization metrics calculated by this script differ from the values calculated by the df -k -l command. If you find the values from df -k -l more useful, you can change the calculations in the script.</td>
 
@@ -106,7 +106,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--disk-space-used`</td>
+<td>--disk-space-used</td>
 
 <td>Collects and sends the DiskSpaceUsed metric for the selected disks. The metric is reported by default in gigabytes. Due to reserved disk space in Linux operating systems, disk space used and disk space available might not accurately add up to the amount of total disk space.</td>
 
@@ -114,7 +114,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--disk-space-avail`</td>
+<td>--disk-space-avail</td>
 
 <td>Collects and sends the DiskSpaceAvailable metric for the selected disks. The metric is reported in gigabytes. Due to reserved disk space in the Linux operating systems, disk space used and disk space available might not accurately add up to the amount of total disk space.</td>
 
@@ -122,7 +122,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--memory-units=UNITS`</td>
+<td>--memory-units=UNITS</td>
 
 <td>Specifies units in which to report memory usage. If not specified, memory is reported in megabytes. UNITS may be one of the following: bytes, kilobytes, megabytes, gigabytes.</td>
 
@@ -130,7 +130,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--disk-space-units=UNITS`</td>
+<td>--disk-space-units=UNITS</td>
 
 <td>Specifies units in which to report disk space usage. If not specified, disk space is reported in gigabytes. UNITS may be one of the following: bytes, kilobytes, megabytes, gigabytes.</td>
 
@@ -138,7 +138,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--aws-credential- file=PATH`</td>
+<td>--aws-credential- file=PATH</td>
 
 <td>Provides the location of the file containing AWS credentials. This parameter cannot be used with the `--aws-access-key-id` and -`-aws-secret-key` parameters.</td>
 
@@ -146,7 +146,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--aws-access-key-id=VALUE`</td>
+<td>--aws-access-key-id=VALUE</td>
 
 <td>Specifies the AWS access key ID to use to identify the caller. Must be used together with the `--aws-secret-key` option. Do not use this option with the `--aws-credential-file` parameter.</td>
 
@@ -154,7 +154,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--aws-secret-key=VALUE`</td>
+<td>--aws-secret-key=VALUE</td>
 
 <td>Specifies the AWS secret access key to use to sign the request to CloudWatch. Must be used together with the `--aws-access-key-id` option. Do not use this option with `--aws-credential-file` parameter.</td>
 
@@ -162,7 +162,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--aws-iam-role=VALUE`</td>
+<td>--aws-iam-role=VALUE</td>
 
 <td>Specifies the IAM role used to provide AWS credentials. The value `=VALUE` is required. If no credentials are specified, the default IAM role associated with the EC2 instance is applied. Only one IAM role can be used. If no IAM roles are found, or if more than one IAM role is found, the script will return an error. Do not use this option with the `--aws-credential-file`, `--aws-access-key-id`, or `--aws-secret-key` parameters.</td>
 
@@ -170,7 +170,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--aggregated[=only]`</td>
+<td>--aggregated[=only]</td>
 
 <td>Adds aggregated metrics for instance type, AMI ID, and overall for the region. The value `=only` is optional; if specified, the script reports only aggregated metrics.</td>
 
@@ -178,7 +178,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--auto-scaling[=only]`</td>
+<td>--auto-scaling[=only]</td>
 
 <td>Adds aggregated metrics for the Auto Scaling group. The value `=only` is optional; if specified, the script reports only Auto Scaling metrics. The IAM policy associated with the IAM account or role using the scripts need to have permissions to call the EC2 action DescribeTags.</td>
 
@@ -186,43 +186,13 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <tr>
 
-<td>`--verify`</td>
-
-<td>Performs a test run of the script that collects the metrics, prepares a complete HTTP request, but does not actually call CloudWatch to report the data. This option also checks that credentials are provided. When run in verbose mode, this option outputs the metrics that will be sent to CloudWatch.</td>
-
-</tr>
-
-<tr>
-
-<td>`--from-cron`</td>
+<td>--from-cron</td>
 
 <td>Use this option when calling the script from cron. When this option is used, all diagnostic output is suppressed, but error messages are sent to the local system log of the user account.</td>
 
 </tr>
 
 <tr>
-
-<td>`--verbose`</td>
-
-<td>Displays detailed information about what the script is doing.</td>
-
-</tr>
-
-<tr>
-
-<td>`--help`</td>
-
-<td>Displays usage information.</td>
-
-</tr>
-
-<tr>
-
-<td>`--version`</td>
-
-<td>Displays the version number of the script.</td>
-
-</tr>
 
 </tbody>
 
