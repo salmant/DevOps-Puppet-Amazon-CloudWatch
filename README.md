@@ -20,7 +20,7 @@ If you do not know where to retrieve the `--aws-access-key-id` and `--aws-secret
 <br><br>
 Your credentials or IAM role should be set in this file: [params.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/params.pp)
 <br><br>
-The `params` class contains all default parameters for our module. For example, the variable named `cloudwatch_monitoring_scripts_folder` indicates the folder where you want to store the CloudWatch Monitoring Scripts. The default folder is `/cloudwatch-monitoring-scripts` and feel free to change it as you wish. 
+The `params` class contains all default parameters for the module. For example, the variable named `cloudwatch_monitoring_scripts_folder` indicates the folder where you want to store the CloudWatch Monitoring Scripts. The default folder is `/cloudwatch-monitoring-scripts` and feel free to change it as you wish. 
 <br><br>
 The default monitoring interval named `monitoring_interval_minutes` is set to 1 minute. It should be noted that setting up an appropriate monitoring interval is necessary to ensure the reliability of the whole system, to avoid overhead, and to prevent losing control over the running environment during auto-scaling actions. Therefore, I suggest you to choose the monitoring interval carefully. In this regard, you need also to take into accout the Amazon CloudWatch Pricing. You can get started with Amazon CloudWatch for free. 
 <br><br>
@@ -203,12 +203,12 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 In the `params` class, you can specify which metrics are required to be monitored and reported. If you would like to have a certain metric measured, use `true`. Otherwise, you need to determin the value of `false` for the metric.
 <br><br>
-The entry point to our module is this file: [init.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/init.pp)
+The entry point to the module is this file: [init.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/init.pp)
 <br><br>
-The Amazon CloudWatch installation step of our Puppet module is written in this file: [install.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/install.pp)
+The Amazon CloudWatch installation step of the Puppet module is written in this file: [install.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/install.pp)
 <br><br>
-The Amazon CloudWatch configure step of our Puppet module is written in this file: [config.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/config.pp)
+The Amazon CloudWatch configure step of the Puppet module is written in this file: [config.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/config.pp)
 <br><br>
-The final part of our module is to run the Amazon CloudWatch Agent that is written in this file: [service.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/service.pp)
+The final part of the module is to run the Amazon CloudWatch Agent that is written in this file: [service.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/service.pp)
 <br><br>
 
