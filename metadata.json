@@ -1,0 +1,15 @@
+{
+  "name": "salmant-cloudwatch",
+  "version": "0.1.0",
+  "author": "Salman Taherizadeh - Jozef Stefan Institute",
+  "summary": "Puppet module used to run the Amazon CloudWatch",
+  "license": "Apache-2.0",
+  "source": "https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch.git",
+  "project_page": "https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch",
+  "issues_url": "https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
