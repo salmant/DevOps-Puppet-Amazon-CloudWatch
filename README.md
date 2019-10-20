@@ -2,10 +2,10 @@
 
 NOTE: In order to proceed this guide, prior DevOps knowledge of working with the following technologies is highly required:
 
-Puppet configuration management tool
-Puppet declarative language for manifests
-Amazon CloudWatch
-Amazon EC2 cloud infrastructure
+* Puppet configuration management tool
+* Puppet declarative language for manifests
+* Amazon CloudWatch
+* Amazon EC2 cloud infrastructure
 
 Amazon CloudWatch is a observability tool built for DevOps engineers, site reliability engineers, developers and IT managers. Amazon CloudWatch offers data insights useful to monitor cloud-based applications, respond to performance changes in the execution environment, optimise resource utilisation, and obtain a unified view of operational health at runtime. Amazon CloudWatch collects monitoring data in the form of metrics, logs and events, associated with different resources, applications, and services that run on AWS and on-premises servers. CloudWatch can be employed to detect anomalous behavior in the computing environment, set triggering alarms, visualise logs and metrics, take automated actions, troubleshooting operations, and discover helpful insights to keep services running smoothly.
 <br><br>
