@@ -18,7 +18,7 @@ Before you begin, make sure you have your own Puppet configuration management to
 If you do not know where to retrieve the `--aws-access-key-id` and `--aws-secret-key` parameters, after logging into your Amazon AWS console go to the following page and add a user: 
 <br><br>https://console.aws.amazon.com/iam/home#/users
 <br><br>
-All your credentials or IAM role should be set in this file: [params.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/params.pp)
+Your credentials or IAM role should be set in this file: [params.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/params.pp)
 <br><br>
 The `params` class contains all default parameters for our module. For example, the variable named `cloudwatch_monitoring_scripts_folder` indicates the folder where you want to store the CloudWatch Monitoring Scripts. The default folder is `/cloudwatch-monitoring-scripts` and feel free to change it as you wish. 
 <br><br>
@@ -202,11 +202,13 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 <br>
 
 In the `params` class, you can specify which metrics are required to be monitored and reported. If you would like to have a certain metric measured, use `true`. Otherwise, you need to determin the value of `false` for the metric.
-
-
-
-
-
-
-
+<br><br>
+The entry point to our module is this file: [init.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/init.pp)
+<br><br>
+The sofware installation step of our Puppet module is written in this file: [install.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/install.pp)
+<br><br>
+The sofware configure step of our Puppet module is written in this file: [config.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/config.pp)
+<br><br>
+The final part of our module is running the software that is written in this file: [service.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/service.pp)
+<br><br>
 
