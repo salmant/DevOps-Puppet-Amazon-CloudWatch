@@ -10,7 +10,7 @@ NOTE: In order to proceed this guide, prior DevOps knowledge of working with the
 Amazon CloudWatch is a observability tool built for DevOps engineers, site reliability engineers, developers and IT managers. Amazon CloudWatch offers data insights useful to monitor cloud-based applications, respond to performance changes in the execution environment, optimise resource utilisation, and obtain a unified view of operational health at runtime. Amazon CloudWatch collects monitoring data in the form of metrics, logs and events, associated with different resources, applications, and services that run on AWS and on-premises servers. CloudWatch can be employed to detect anomalous behavior in the computing environment, set triggering alarms, visualise logs and metrics, take automated actions, troubleshooting operations, and discover helpful insights to keep services running smoothly.
 <br><br>
 This repository is about how to setup a Puppet module used to run the Amazon CloudWatch on whether AWS or on-premises servers. In other words, how to create a Puppet module to deploy a Monitoring Agent running on a Linux-based system regularly to push different metrics to the Amazon CloudWatch API.
-<br>
+<br><br>
 ![Image](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/CW-Overview.png)
 <br><br>
 Before you begin, make sure you have your own Puppet configuration management tool running. Moreover, we assume that you already have your credentials including the `--aws-access-key-id` and `--aws-secret-key parameters`. Otherwise, you must provide an IAM role. An IAM role is an identity that you can create in your account that has specific permissions. An IAM role is similar to an IAM user, but it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials such as a password or access keys associated with it. Instead, when you assume a role, it provides you with temporary security credentials for your role session. 
@@ -199,8 +199,6 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 </table>
 
 <br>
-
-In the `params` class, you can specify which metrics are required to be monitored and reported. If you would like to have a certain metric measured, use `true`. Otherwise, you need to determin the value of `false` for the metric.
 <br>
 
 In the `params` class, you can specify which metrics are required to be monitored and reported. If you would like to have a certain metric measured, use `true`. Otherwise, you need to determin the value of `false` for the metric.
