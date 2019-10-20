@@ -1,4 +1,4 @@
-# DevOps use case: Setup a Puppet module used to run the Amazon CloudWatch
+# DevOps use case: Setup a Puppet module used to install, configure and run the Amazon CloudWatch
 
 NOTE: In order to proceed this guide, prior DevOps knowledge of working with the following technologies is highly required:
 
@@ -20,7 +20,7 @@ If you do not know where to retrieve the `--aws-access-key-id` and `--aws-secret
 <br><br>
 All your credentials or IAM role should be set in this file: [params.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/params.pp)
 <br><br>
-The params class contains all default parameters for our module. For example, `cloudwatch_monitoring_scripts_folder` indicates the folder where you want to store the CloudWatch Monitoring Scripts. The default folder is `/cloudwatch-monitoring-scripts` and feel free to change it as you wish. 
+The `params` class contains all default parameters for our module. For example, the variable named `cloudwatch_monitoring_scripts_folder` indicates the folder where you want to store the CloudWatch Monitoring Scripts. The default folder is `/cloudwatch-monitoring-scripts` and feel free to change it as you wish. 
 <br><br>
 The default monitoring interval named `monitoring_interval_minutes` is set to 1 minute. It should be noted that setting up an appropriate monitoring interval is necessary to ensure the reliability of the whole system, to avoid overhead, and to prevent losing control over the running environment during auto-scaling actions. Therefore, I suggest you to choose the monitoring interval carefully. In this regard, you need also to take into accout the Amazon CloudWatch Pricing. You can get started with Amazon CloudWatch for free. 
 <br><br>
@@ -198,6 +198,8 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 </table>
 
+<br>
+In the `params` class, you can specify which metrics are required to be monitored and reported. If you would like to have a certain metric measured, use `true`. Otherwise, you need to determin the value of `false` for the metric.
 
 
 
