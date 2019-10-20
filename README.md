@@ -13,19 +13,18 @@ This repository is about how to setup a Puppet module used to run the Amazon Clo
 <br>
 ![Image](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/CW-Overview.png)
 <br>
-Before you begin, make sure you have your own Puppet configuration management tool running. Moreover, we assume that you already have your credentials including the --aws-access-key-id and --aws-secret-key parameters. Otherwise, you must provide an IAM role. An IAM role is an identity that you can create in your account that has specific permissions. An IAM role is similar to an IAM user, but it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials such as a password or access keys associated with it. Instead, when you assume a role, it provides you with temporary security credentials for your role session. 
+Before you begin, make sure you have your own Puppet configuration management tool running. Moreover, we assume that you already have your credentials including the `--aws-access-key-id` and `--aws-secret-key parameters`. Otherwise, you must provide an IAM role. An IAM role is an identity that you can create in your account that has specific permissions. An IAM role is similar to an IAM user, but it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have standard long-term credentials such as a password or access keys associated with it. Instead, when you assume a role, it provides you with temporary security credentials for your role session. 
 <br><br>
 If you do not know where to retrieve the --aws-access-key-id and --aws-secret-key parameters, after logging into your Amazon AWS console go to the following page and add a user: 
 <br><br>https://console.aws.amazon.com/iam/home#/users
 <br><br>
 All your credentials or IAM role should be set in this file: [params.pp](https://github.com/salmant/DevOps-Puppet-Amazon-CloudWatch/blob/master/manifests/params.pp)
 <br><br>
-The params class contains all default parameters for our module. For example, cloudwatch_monitoring_scripts_folder which indicates the folder where you want to store the CloudWatch Monitoring Scripts. The default folder is "/cloudwatch-monitoring-scripts" that feel free to change it as you wish. 
+The params class contains all default parameters for our module. For example, cloudwatch_monitoring_scripts_folder which indicates the folder where you want to store the CloudWatch Monitoring Scripts. The default folder is `/cloudwatch-monitoring-scripts` that feel free to change it as you wish. 
 <br><br>
-The default monitoring interval is set to 1 minute. It should be noted that setting up an appropriate monitoring interval is necessary to ensure the reliability of the whole system, to
-avoid overhead, and to prevent losing control over the running environment during auto-scaling actions. Therefore, I suggest you to choose the monitoring interval carefully. In this regard, you need also to take into accout the Amazon CloudWatch Pricing. You can get started with Amazon CloudWatch for free. 
+The default monitoring interval named `monitoring_interval_minutes` is set to 1 minute. It should be noted that setting up an appropriate monitoring interval is necessary to ensure the reliability of the whole system, to avoid overhead, and to prevent losing control over the running environment during auto-scaling actions. Therefore, I suggest you to choose the monitoring interval carefully. In this regard, you need also to take into accout the Amazon CloudWatch Pricing. You can get started with Amazon CloudWatch for free. 
 <br><br>
-According to the following Web page, the Amazon CloudWatch script is able to collect different metrics such as memory, swap and disk space utilisation on the current system. It then makes a remote call to the Amazon CloudWatch to report the measured data as custom metrics.
+According to the following Web page, the Amazon CloudWatch script is able to collect different metrics such as memory, swap and disk space utilisation on the current system. It then makes a remote call to the Amazon CloudWatch to report the measured data as custom metrics. `--mem-util`
 <br><br>
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 <br>
@@ -181,7 +180,7 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
 
 <td>`--auto-scaling[=only]`</td>
 
-<td>Adds aggregated metrics for the Auto Scaling group. The value `=only` is optional; if specified, the script reports only Auto Scaling metrics. The [IAM policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingPolicies.html) associated with the IAM account or role using the scripts need to have permissions to call the EC2 action [DescribeTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html).</td>
+<td>Adds aggregated metrics for the Auto Scaling group. The value `=only` is optional; if specified, the script reports only Auto Scaling metrics. The IAM policy associated with the IAM account or role using the scripts need to have permissions to call the EC2 action DescribeTags.</td>
 
 </tr>
 
