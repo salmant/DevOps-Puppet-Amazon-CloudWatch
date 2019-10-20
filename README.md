@@ -27,10 +27,9 @@ avoid overhead, and to prevent losing control over the running environment durin
 <br><br>
 According to the following Web page, the Amazon CloudWatch script is able to collect different metrics such as memory, swap and disk space utilisation on the current system. It then makes a remote call to the Amazon CloudWatch to report the measured data as custom metrics.
 <br><br>
-
-
-
-<table id="w317aac21c23b7c19b5">
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mon-scripts.html
+<br>
+<table id='w317aac21c23b7c19b5'>
 
 <tbody>
 
