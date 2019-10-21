@@ -1,4 +1,4 @@
-# DevOps use case: Setup a Puppet module used to install, configure and run the Amazon CloudWatch
+# DevOps use case: A Puppet module used to install, configure and run the Amazon CloudWatch
 
 NOTE: In order to proceed this guide, prior DevOps knowledge of working with the following technologies is highly required:
 
