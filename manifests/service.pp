@@ -1,4 +1,4 @@
-# Class: cloudwatch::config
+# Class: cloudwatch::service
 # =================
 #
 # ----------
